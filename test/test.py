@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import ClockCycles
+from cocotb.triggers import ClockCycles, Timer
 
 
 def to_gray(n):
@@ -29,6 +29,9 @@ async def test_project(dut):
 
     dut._log.info("Enable counting")
     dut.ui_in.value = 1
+    dut._log.info("Enable counting")
+    dut.ui_in.value = 1
+    await Timer(1, units="ns")
 
     expected_binary = 0
     for i in range(20):
