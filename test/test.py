@@ -29,13 +29,12 @@ async def test_project(dut):
 
     dut._log.info("Enable counting")
     dut.ui_in.value = 1
-    dut._log.info("Enable counting")
-    dut.ui_in.value = 1
     await Timer(1, units="ns")
 
     expected_binary = 0
     for i in range(20):
         await ClockCycles(dut.clk, 1)
+        await Timer(1, units="ns")  # let the register's non-blocking update settle before reading it
         expected_binary = (expected_binary + 1) & 0xFF
         expected_gray = to_gray(expected_binary)
         binary_msg = "cycle " + str(i) + " binary mismatch"
@@ -47,6 +46,7 @@ async def test_project(dut):
     dut.ui_in.value = 0
     held_binary = expected_binary
     await ClockCycles(dut.clk, 5)
+    await Timer(1, units="ns")
     assert dut.uio_out.value == held_binary
     assert dut.uo_out.value == to_gray(held_binary)
 
