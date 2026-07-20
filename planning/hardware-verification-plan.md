@@ -39,7 +39,7 @@
 - **목표**: 2번 실측 스크립트를 "내 칩 전용"이 아니라 "TT 데모보드에 꽂힌 아무 프로젝트나 측정 가능한 범용 도구"로 일반화
 - **결과물**: 공개 GitHub 저장소 + TT Discord/포럼 공유. 스타/포크/사용 사례가 검증 가능한 임팩트 지표가 됨
 - **의존성**: 2번 완료 후
-- **상태**: GitHub 공개 완료 — https://github.com/jameshfj01-maker/tt-switching-analyzer . `core.py`(임의 신호 비교), `cli.py`, `ttboard_capture.py`(임의 프로젝트/핀 캡처, 미검증), `README.md`, 예제(`examples/gray_vs_binary.py`, 실행 검증 완료: 510 vs 256회, 49.8% 감소). **남은 것**: TT Discord/포럼 공유 — 내일 진행 예정 (본인 계정으로 직접).
+- **상태**: GitHub 공개 완료, 패키징/테스트/CI까지 갖춤 — https://github.com/jameshfj01-maker/tt-switching-analyzer . `core.py`(임의 신호 비교), `cli.py`, `ttboard_capture.py`(TinyTapeout 실제 SDK 소스로 검증, 실행은 미검증), `pyproject.toml`(pip 설치 가능), `tests/test_core.py`(유닛 테스트 6개, 통과), `.github/workflows/test.yml`(CI, 첫 실행부터 그린). 예제(`examples/gray_vs_binary.py`, 실행 검증 완료: 510 vs 256회, 49.8% 감소). **남은 것**: TT Discord/포럼 공유 — 내일 진행 예정 (본인 계정으로 직접).
 
 ## 진행 순서
 
